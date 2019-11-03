@@ -1,15 +1,5 @@
 from numpy import pi, arccos, tan
 
-# INPUT POINTn [Xn, Yn, Zn, RADIUSn]
-points = [[  0.0,    0.0,   0.0,  0.0],
-          [-50.0,    0.0,   0.0, 20.0],
-          [-40.0,  -40.0,  20.0, 20.0],
-          [-40.0,  -40.0,  50.0, 20.0],
-          [-70.0,  -60.0,  80.0, 20.0],
-          [-70.0, -120.0,  70.0, 20.0],
-          [-80.0, -120.0, 200.0, 20.0],
-          [-40.0, -155.0, 200.0,  0.0]]
-
 class BendedTube:
     
     def __init__(self, points=False):
@@ -73,17 +63,3 @@ class BendedTube:
     
     def getResultSet(self):
         return self.len_sum, self.real_len, self.bow_len, self.bending_angle
-
-
-tube = BendedTube(points)
-
-result = tube.getResultSet()
-
-print ('straight length 1 ={0:7.1f}'.format(result[1][0]))
-for i in range (len(points)-2):
-    print ('bow length.....{0:2} ={1:7.1f}  (bend.Angle = {2:5.1f} Degree'
-           .format(i+1,result[2][i],result[3][i]))
-    print ('straight length{0:2} ={1:7.1f}'.format(i+2,result[1][i+1]))
-print (28*'-')
-print ('SUM LENGTH....... ={0:7.1f}'.format(result[0]))
-print (28*'=')
